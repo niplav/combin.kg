@@ -1,8 +1,32 @@
-fac::{*/1+!x}
-bincoeff::{fac(x)%fac(x-y)*fac(y)}
+.l("math")
+
+:"Factorial"
+fac::{:[x<1;1;*/1+!x]}
+
+:"Harmonic series"
+harm::{+/%'1+!x}
+
+:"Binomial coefficient"
+comb::{fac(x)%fac(x-y)*fac(y)}
+
+:"Stirling numbers (1st kind)"
 stir1::{:[y=1;fac(x-1):|x=y;1;.f(x-1;y-1)+(x-1)*.f(x-1;y)]}
+
+:"Stirling numbers (2nd kind)"
 stir2::{:[x=y;1:|y=0;0;.f(x-1;y-1)+y*.f(x-1;y)]}
 snk::{stir2(x;y)}
+
+:"Catalan numbers"
+cat::{rnd(comb(2*x;x)*1%x+1)}
+
+:"1st order Eulerian numbers"
+eul1::{[n m];n::x;m::y;+/{comb(n+1;x)*((-1)^x)*((m+1-x)^n)}'!y}
+
+:"2nd order Eulerian numbers"
+eul2::{1}
+
 fnk::{fac(x)*snk(y;x)}
 gnk::{2^x-1}
+
+:"Unfinished"
 pnk::{:[y>0;.f(x-1;y-1)+.f(x-y;y):|(x>0)&y=0;0;1]}
