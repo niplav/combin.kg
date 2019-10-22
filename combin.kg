@@ -1,7 +1,12 @@
 .l("math")
 
+:"Counting functions"
+
 :"Factorial"
 fac::{:[x<1;1;*/1+!x]}
+
+:"Fibonacci numbers"
+fib::{*(x-1){(+/2#x),x}:*[1 0]}
 
 :"Harmonic series"
 harm::{+/%'1+!x}
@@ -28,5 +33,14 @@ eul2::{1}
 fnk::{fac(x)*snk(y;x)}
 gnk::{2^x-1}
 
+:"Counting partitions"
+:"https://en.wikipedia.org/wiki/Partition_(number_theory)"
+:"https://math.stackexchange.com/questions/348415/give-combinatoric-argument-for-partition-counting-pn-k-pn-1-k-1-p"
+:"https://brilliant.org/wiki/partition-of-an-integer/"
+:"https://www.geeksforgeeks.org/count-number-of-ways-to-partition-a-set-into-k-subsets/"
+:"http://www.cs.utsa.edu/~wagner/python/fp/part.html"
+:"https://stackoverflow.com/questions/10035752/elegant-python-code-for-integer-partitioning"
 :"Unfinished"
 pnk::{:[y>0;.f(x-1;y-1)+.f(x-y;y):|(x>0)&y=0;0;1]}
+
+:"Enumeration functions"
